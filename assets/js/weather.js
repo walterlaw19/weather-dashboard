@@ -1,16 +1,32 @@
+var key = secret_api_key;
+
+// var testkey = "aa13099c2c810761d8793e0f517d1466"
+
 var userFormEl = document.querySelector("#user-form");
 
 // get user weather function
 var getUserWeather = function() {
-    fetch("")
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=" + key + "")
     .then(function (response) {
-        if(response.ok) {
-            response.json().then(function(data) {
-                displayWeather(data.user);
-            })
-        }
+        return response.json();
+
+
+
+
+
+
+
+        // if(response.ok) {
+        //     response.json().then(function(data) {
+        //         displayWeather(data.lat);
+        //     })
+        // }
     })
-    console.log("get weather");
+    .then(function(data) {
+        console.log(data.current.weather);
+    });
+
+    // console.log("get weather");
 };
 
 // submit function

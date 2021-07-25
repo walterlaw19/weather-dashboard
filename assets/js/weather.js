@@ -1,6 +1,5 @@
 var key = secret_api_key;
 
-// var testkey = "aa13099c2c810761d8793e0f517d1466"
 
 var userFormEl = document.querySelector("#user-form");
 

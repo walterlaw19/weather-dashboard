@@ -23,35 +23,84 @@
   <main class="container">
     <div class="row">
       <div class="col-12 col-sm-3">
+
         <h3 class="card-header text-uppercase">Search By City</h3>
         <form id="user-form" class="card-body">
-          <label class="form-label" for="username"></label>
-          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Get Weather</button>
+          <label class="form-label"></label>
+          <input placeholder="enter city" id="city-name" type="text" autofocus="true" class="form-input" />
+          <button id="btn-weather" type="button" class="btn-border">Get Weather</button>
         </form>
+
+        <div class="row">
+          <div class="col-12 col-sm-3">
+            <h5 class="card-header">
+              history searches
+            </h5>  
+          </div>
+        </div>
+
+
+
+
       </div>
 
       <div class="col-12 col-sm-9">
-        <h2 class="subtitle">Showing weather for: <span id="repo-search-term"></span></h2>
-        <div id="repos-container" class="list-group"></div>
+        <div class="row">
+          <div class="col-12 col-sm-9">
+            <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
+          <div id="weather-container" class="">
+            <span id="city-name-result" class="card-header text-uppercase"></span>
+            <!-- <img src="placeholder" alt=""> -->
+          </div>
+          <div>
+            <span id="temperature"></span>
+          </div>
+          <div>
+            <span id="humidity"></span>
+          </div>
+          <div>
+            <span id="wind-speed"></span>
+          </div>
+          <div>
+            <span id="uv-index"></span>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <h4>5-day forecast</h4>
+              </div>
+            </div>
+            <div class="row col-12">
+              <div class="col-sm-2">day 1</div>
+              <div class="col-sm-2">day 2</div>
+              <div class="col-sm-2">day 3</div>
+              <div class="col-sm-2">day 4</div>
+              <div class="col-sm-2">day 5</div>
+
+
+
+
+              
+            </div>
+        </div>
+        
+          
+        </div>
+        
+
       </div>
+          
+        
+        
     </div>
   </main>
 
 
-  <main class="container">
-    <div class="row">
-      <div class="col-12 col-sm-3">
-        <h5 class="card-header">
-          history searches
-        </h5>  
-      </div>
-    </div>
-  </main>
+ 
   
     
   <script type="text/javascript" src="./config.js"></script>
-  <script src=".//assets/js/weather.js"></script>
+  <script src="./assets/js/weather.js"></script>
     
     <!-- https://openweathermap.org/api/one-call-api -->
 </body>

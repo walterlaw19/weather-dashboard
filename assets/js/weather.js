@@ -1,19 +1,36 @@
+// var ready = function () {
+
+// }
+
+
 var key = secret_api_key;
 
 
-var userFormEl = document.querySelector("#user-form");
+var cityName = document.querySelector("#city-name"); // querySelector -> cna be used for id or classes or element tags
+
+console.log(cityName.value)
+// var cityName = document.getElementById("city-name") // just for ids
+// var cityName = document.getElementsByClassName("card-header") // just for class
+
+/*
+
+var --> vague, it can be either let or const
+
+let ---> variables that you can change
+const ---> variables that you CANNOT change
+
+*/
+
+
+
+// var userFormEl = document.querySelector("#user-form");
 
 // get user weather function
 var getUserWeather = function() {
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=" + key + "")
+    console.log("https://api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&units=imperial&appid=" + key)
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&units=imperial&appid=" + key)
     .then(function (response) {
         return response.json();
-
-
-
-
-
-
 
         // if(response.ok) {
         //     response.json().then(function(data) {
@@ -22,16 +39,66 @@ var getUserWeather = function() {
         // }
     })
     .then(function(data) {
-        console.log(data.current.weather);
+
+
+        var CityNameResultSpan = document.querySelector("#city-name-result");
+        CityNameResultSpan.textContent = data.name;
+
+    
+        // var weatherContainerEl = document.querySelector("#weather-container");
+        // var weatherUserResult = document.createElement("search-result");
+        // weatherUserResult.setAttribute("href", data.current);
+        // weatherContainerEl.appendChild(weatherUserResult);
+        // console.log(data.current.weather);
+
+        console.log(data)
+
+        // just get the lon and lat from the first fetch call
+        var lon = data.coord.lon;
+        var lat = data.coord.lat;
+
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(data2) {
+            console.log(data2)
+
+
+            // queryselect the element
+            var tempSpan = document.querySelector("#temperature");
+        
+            // change the text content of the element
+            tempSpan.textContent = "Temperature: " + data2.current.temp;
+
+            var humiSpan = document.querySelector("#humidity");
+            humiSpan.textContent = "Humidity: " + data2.current.humidity;
+
+            var windSpeedSpan = document.querySelector("#wind-speed");
+            windSpeedSpan.textContent = "Wind Speed: " + data2.current.wind_speed;
+
+            var uvIndexSpan = document.querySelector("#uv-index");
+            uvIndexSpan.textContent = "UV Index: " + data2.current.uvi;
+
+
+
+
+            
+
+            
+        })
+
+
+
     });
 
     // console.log("get weather");
 };
 
 // submit function
-var formSubmitHandler = function() {
+// var formSubmitHandler = function() {
 
-}
+// }
 
 // display function
 var displayWeather = function() {
@@ -54,7 +121,8 @@ var displayWeather = function() {
 
 };
 
-getUserWeather();
+// getUserWeather();
 
+var weatherButton = document.getElementById("btn-weather");
 
-userFormEl.addEventListener("submit", formSubmitHandler);
+weatherButton.addEventListener("click", getUserWeather);

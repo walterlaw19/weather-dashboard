@@ -69,16 +69,42 @@ var getUserWeather = function() {
             var tempSpan = document.querySelector("#temperature");
         
             // change the text content of the element
-            tempSpan.textContent = "Temperature: " + data2.current.temp;
+            tempSpan.textContent = "Temperature: " + Math.trunc(data2.current.temp) + " ℉";
 
             var humiSpan = document.querySelector("#humidity");
-            humiSpan.textContent = "Humidity: " + data2.current.humidity;
+            humiSpan.textContent = "Humidity: " + data2.current.humidity + "%";
 
             var windSpeedSpan = document.querySelector("#wind-speed");
-            windSpeedSpan.textContent = "Wind Speed: " + data2.current.wind_speed;
+            windSpeedSpan.textContent = "Wind Speed: " + data2.current.wind_speed + " MPH";
 
             var uvIndexSpan = document.querySelector("#uv-index");
             uvIndexSpan.textContent = "UV Index: " + data2.current.uvi;
+
+
+
+            // forecast of 5 days
+
+            var forecastOneDivEl = document.querySelector("#forecast-1");
+            var forecastOneTempEl = document.createElement("div");
+            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
+            forecastOneTempEl.textContent = "temperature: " + Math.trunc(data2.daily[0].temp.max) + " ℉";
+            console.log(forecastOneTempEl);
+            forecastOneDivEl.appendChild(forecastOneTempEl);
+
+
+
+            // forecast for Friday
+            var forecastFourDivEl = document.querySelector("#forecast-4");
+            var forecastFourTempEl = document.createElement("div");
+            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
+            forecastFourTempEl.textContent = "temperature: " + Math.trunc(data2.daily[3].temp.max) + " ℉";
+            console.log(forecastFourTempEl);
+            forecastFourDivEl.appendChild(forecastFourTempEl);
+
+
+
+
+            
 
 
 
@@ -94,6 +120,9 @@ var getUserWeather = function() {
 
     // console.log("get weather");
 };
+
+
+
 
 // submit function
 // var formSubmitHandler = function() {

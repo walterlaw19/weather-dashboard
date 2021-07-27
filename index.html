@@ -19,18 +19,19 @@
       <p>search the weather for any city in the world</p>
         
   </header>
-
+<!-- Container -->
   <main class="container">
     <div class="row">
       <div class="col-12 col-sm-3">
-
         <h3 class="card-header text-uppercase">Search By City</h3>
+        <!-- form -->
         <form id="user-form" class="card-body">
           <label class="form-label"></label>
           <input placeholder="enter city" id="city-name" type="text" autofocus="true" class="form-input" />
           <button id="btn-weather" type="button" class="btn-border">Get Weather</button>
         </form>
 
+        <!-- show history search -->
         <div class="row">
           <div class="col-12 col-sm-3">
             <h5 class="card-header">
@@ -38,18 +39,15 @@
             </h5>  
           </div>
         </div>
-
-
-
-
       </div>
 
+      <!-- Show Search Results -->
       <div class="col-12 col-sm-9">
         <div class="row">
           <div class="col-12 col-sm-9">
             <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
           <div id="weather-container" class="">
-            <span id="city-name-result" class="card-header text-uppercase"></span>
+            <span id="city-name-result" class="text-uppercase"></span>
             <!-- <img src="placeholder" alt=""> -->
           </div>
           <div>
@@ -67,15 +65,15 @@
           <div class="row">
             <div class="col-12">
               <div>
-                <h4>5-day forecast</h4>
+                <h4>5-day forecast:</h4>
               </div>
             </div>
             <div class="row col-12">
-              <div class="col-sm-2">day 1</div>
-              <div class="col-sm-2">day 2</div>
-              <div class="col-sm-2">day 3</div>
-              <div class="col-sm-2">day 4</div>
-              <div class="col-sm-2">day 5</div>
+              <div id="forecast-1" class="col-sm-2"></div>
+              <div id="forecast-2" class="col-sm-2">day 2</div>
+              <div id="forecast-3" class="col-sm-2">day 3</div>
+              <div id="forecast-4" class="col-sm-2">day 4</div>
+              <div id="forecast-5" class="col-sm-2">day 5</div>
 
 
 

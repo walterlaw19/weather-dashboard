@@ -40,9 +40,17 @@ var getUserWeather = function() {
     })
     .then(function(data) {
 
+         function updateTime() {
+            currentTime = moment().subtract(10, 'days').calendar();
+            // $("#currentDay").text(currentTime);
+        }
+        updateTime()
+
 
         var CityNameResultSpan = document.querySelector("#city-name-result");
-        CityNameResultSpan.textContent = data.name;
+        CityNameResultSpan.textContent = data.name + " (" + (currentTime) + ")" ;
+
+       
 
     
         // var weatherContainerEl = document.querySelector("#weather-container");
@@ -84,6 +92,7 @@ var getUserWeather = function() {
 
             // forecast of 5 days
 
+            // forecast day 1
             var forecastOneDivEl = document.querySelector("#forecast-1");
             var forecastOneTempEl = document.createElement("div");
             // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
@@ -92,8 +101,25 @@ var getUserWeather = function() {
             forecastOneDivEl.appendChild(forecastOneTempEl);
 
 
+            // forecast day 2
+            var forecastTwoDivEl = document.querySelector("#forecast-2");
+            var forecastTwoTempEl = document.createElement("div");
+            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
+            forecastTwoTempEl.textContent = "temperature: " + Math.trunc(data2.daily[1].temp.max) + " ℉";
+            console.log(forecastTwoTempEl);
+            forecastTwoDivEl.appendChild(forecastTwoTempEl);
 
-            // forecast for Friday
+
+            // forecast day 3
+            var forecastThreeDivEl = document.querySelector("#forecast-3");
+            var forecastThreeTempEl = document.createElement("div");
+            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
+            forecastThreeTempEl.textContent = "temperature: " + Math.trunc(data2.daily[2].temp.max) + " ℉";
+            console.log(forecastThreeTempEl);
+            forecastThreeDivEl.appendChild(forecastThreeTempEl);
+
+
+            // forecast day 4
             var forecastFourDivEl = document.querySelector("#forecast-4");
             var forecastFourTempEl = document.createElement("div");
             // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
@@ -101,6 +127,20 @@ var getUserWeather = function() {
             console.log(forecastFourTempEl);
             forecastFourDivEl.appendChild(forecastFourTempEl);
 
+
+            // forecast day 5
+            var forecastFiveDivEl = document.querySelector("#forecast-5");
+            var forecastFiveTempEl = document.createElement("div");
+            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
+            forecastFiveTempEl.textContent = "temperature: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
+            console.log(forecastFiveTempEl);
+            forecastFiveDivEl.appendChild(forecastFiveTempEl);
+
+
+
+
+
+            
 
 
 

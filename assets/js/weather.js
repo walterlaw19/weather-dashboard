@@ -4,26 +4,9 @@
 
 
 var key = secret_api_key;
-
-
 var cityName = document.querySelector("#city-name"); // querySelector -> cna be used for id or classes or element tags
 
 console.log(cityName.value)
-// var cityName = document.getElementById("city-name") // just for ids
-// var cityName = document.getElementsByClassName("card-header") // just for class
-
-/*
-
-var --> vague, it can be either let or const
-
-let ---> variables that you can change
-const ---> variables that you CANNOT change
-
-*/
-
-
-
-// var userFormEl = document.querySelector("#user-form");
 
 // get user weather function
 var getUserWeather = function() {
@@ -41,7 +24,12 @@ var getUserWeather = function() {
     .then(function(data) {
 
          function updateTime() {
-            currentTime = moment().subtract(10, 'days').calendar();
+            currentTime = moment().format('L');
+            dateOne = moment().add(1, 'days').format('L');
+            dateTwo = moment().add(2, 'days').format('L');
+            dateThree = moment().add(3, 'days').format('L');
+            dateFour = moment().add(4, 'days').format('L');
+            dateFive = moment().add(5, 'days').format('L');
             // $("#currentDay").text(currentTime);
         }
         updateTime()
@@ -94,47 +82,121 @@ var getUserWeather = function() {
 
             // forecast day 1
             var forecastOneDivEl = document.querySelector("#forecast-1");
-            var forecastOneTempEl = document.createElement("div");
-            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
-            forecastOneTempEl.textContent = "temperature: " + Math.trunc(data2.daily[0].temp.max) + " ℉";
+            var forecastOneDateEl = document.createElement("p");
+// var image create
+            var forecastOneTempEl = document.createElement("p");
+            var forecastOneWindEl = document.createElement("p");
+            var forecastOneHumidEl = document.createElement("p");
+
+            forecastOneDateEl.textContent = dateOne;
+// image obtain
+            forecastOneTempEl.textContent = "temp: " + Math.trunc(data2.daily[0].temp.max) + " ℉";
+            forecastOneWindEl.textContent = "Wind Speed: " + data2.daily[0].wind_speed + " MPH";
+            forecastOneHumidEl.textContent = "Humidity: " + data2.daily[0].humidity + "%";
+
             console.log(forecastOneTempEl);
+            forecastOneDivEl.appendChild(forecastOneDateEl);
+// append imag
             forecastOneDivEl.appendChild(forecastOneTempEl);
+            forecastOneDivEl.appendChild(forecastOneWindEl);
+            forecastOneDivEl.appendChild(forecastOneHumidEl);
+            
 
 
             // forecast day 2
             var forecastTwoDivEl = document.querySelector("#forecast-2");
-            var forecastTwoTempEl = document.createElement("div");
-            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
-            forecastTwoTempEl.textContent = "temperature: " + Math.trunc(data2.daily[1].temp.max) + " ℉";
+            var forecastTwoDateEl =  document.createElement("p");
+            // create var image
+            var forecastTwoTempEl = document.createElement("p");
+            var forecastTwoWindEl = document.createElement("p");
+            var forecastTwoHumidEl = document.createElement("p");
+
+            forecastTwoDateEl.textContent = dateTwo;
+            // obtain image
+            forecastTwoTempEl.textContent = "temp: " + Math.trunc(data2.daily[1].temp.max) + " ℉";
+            forecastTwoWindEl.textContent = "Wind Speed: " + data2.daily[1].wind_speed + " MPH";
+            forecastTwoHumidEl.textContent = "Humidity: " + data2.daily[1].humidity + "%";
+
             console.log(forecastTwoTempEl);
+            forecastTwoDivEl.appendChild(forecastTwoDateEl);
+            // append imag
             forecastTwoDivEl.appendChild(forecastTwoTempEl);
+            forecastTwoDivEl.appendChild(forecastTwoWindEl);
+            forecastTwoDivEl.appendChild(forecastTwoHumidEl);
 
 
             // forecast day 3
             var forecastThreeDivEl = document.querySelector("#forecast-3");
-            var forecastThreeTempEl = document.createElement("div");
-            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
-            forecastThreeTempEl.textContent = "temperature: " + Math.trunc(data2.daily[2].temp.max) + " ℉";
+            var forecastThreeDateEl =  document.createElement("p");
+            // create var image
+            var forecastThreeTempEl = document.createElement("p");
+            var forecastThreeWindEl = document.createElement("p");
+            var forecastThreeHumidEl = document.createElement("p");
+
+            forecastThreeDateEl.textContent = dateThree;
+            // obtain image
+            forecastThreeTempEl.textContent = "temp: " + Math.trunc(data2.daily[2].temp.max) + " ℉";
+            forecastThreeWindEl.textContent = "Wind Speed: " + data2.daily[2].wind_speed + " MPH";
+            forecastThreeHumidEl.textContent = "Humidity: " + data2.daily[2].humidity + "%";
+
             console.log(forecastThreeTempEl);
+            forecastThreeDivEl.appendChild(forecastThreeDateEl);
+            // append imag
             forecastThreeDivEl.appendChild(forecastThreeTempEl);
+            forecastThreeDivEl.appendChild(forecastThreeWindEl);
+            forecastThreeDivEl.appendChild(forecastThreeHumidEl);
+
+
+
+
 
 
             // forecast day 4
             var forecastFourDivEl = document.querySelector("#forecast-4");
-            var forecastFourTempEl = document.createElement("div");
-            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
-            forecastFourTempEl.textContent = "temperature: " + Math.trunc(data2.daily[3].temp.max) + " ℉";
+            var forecastFourDateEl =  document.createElement("p");
+            // create var image
+            var forecastFourTempEl = document.createElement("p");
+            var forecastFourWindEl = document.createElement("p");
+            var forecastFourHumidEl = document.createElement("p");
+
+            forecastFourDateEl.textContent = dateFour;
+            // obtain image
+            forecastFourTempEl.textContent = "temp: " + Math.trunc(data2.daily[3].temp.max) + " ℉";
+            forecastFourWindEl.textContent = "Wind Speed: " + data2.daily[3].wind_speed + " MPH";
+            forecastFourHumidEl.textContent = "Humidity: " + data2.daily[3].humidity + "%";
+
             console.log(forecastFourTempEl);
+            forecastFourDivEl.appendChild(forecastFourDateEl);
+            // append imag
             forecastFourDivEl.appendChild(forecastFourTempEl);
+            forecastFourDivEl.appendChild(forecastFourWindEl);
+            forecastFourDivEl.appendChild(forecastFourHumidEl);
+
+
+
+
 
 
             // forecast day 5
             var forecastFiveDivEl = document.querySelector("#forecast-5");
-            var forecastFiveTempEl = document.createElement("div");
-            // forecastOneTempEl.setAttribute("alt", data2.current.clouds);
-            forecastFiveTempEl.textContent = "temperature: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
+            var forecastFiveDateEl =  document.createElement("p");
+            // create var image
+            var forecastFiveTempEl = document.createElement("p");
+            var forecastFiveWindEl = document.createElement("p");
+            var forecastFiveHumidEl = document.createElement("p");
+
+            forecastFiveDateEl.textContent = dateFive;
+            // obtain image
+            forecastFiveTempEl.textContent = "temp: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
+            forecastFiveWindEl.textContent = "Wind Speed: " + data2.daily[4].wind_speed + " MPH";
+            forecastFiveHumidEl.textContent = "Humidity: " + data2.daily[4].humidity + "%";
+
             console.log(forecastFiveTempEl);
+            forecastFiveDivEl.appendChild(forecastFiveDateEl);
+            // append imag
             forecastFiveDivEl.appendChild(forecastFiveTempEl);
+            forecastFiveDivEl.appendChild(forecastFiveWindEl);
+            forecastFiveDivEl.appendChild(forecastFiveHumidEl);
 
 
 
@@ -158,7 +220,7 @@ var getUserWeather = function() {
 
     });
 
-    // console.log("get weather");
+    
 };
 
 

@@ -19,10 +19,10 @@
       <p>search the weather for any city in the world</p>
         
   </header>
-<!-- Container -->
+  <!-- Container -->
   <main class="container">
     <div class="row">
-      <div class="col-12 col-sm-3">
+      <div class="col-12 col-sm-2">
         <h3 class="card-header text-uppercase">Search By City</h3>
         <!-- form -->
         <form id="user-form" class="card-body">
@@ -42,54 +42,40 @@
       </div>
 
       <!-- Show Search Results -->
-      <div class="col-12 col-sm-9">
+      <div class="col-12 col-sm-10">
+        <div class="col-12 col-sm-12">
+          <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
+        <div id="weather-container" class="">
+          <span id="city-name-result" class="text-uppercase"></span>
+          <!-- <img src="placeholder" alt=""> -->
+        </div>
+        <div>
+          <span id="temperature"></span>
+        </div>
+        <div>
+          <span id="humidity"></span>
+        </div>
+        <div>
+          <span id="wind-speed"></span>
+        </div>
+        <div>
+          <span id="uv-index"></span>
+        </div>
         <div class="row">
-          <div class="col-12 col-sm-9">
-            <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
-          <div id="weather-container" class="">
-            <span id="city-name-result" class="text-uppercase"></span>
-            <!-- <img src="placeholder" alt=""> -->
-          </div>
-          <div>
-            <span id="temperature"></span>
-          </div>
-          <div>
-            <span id="humidity"></span>
-          </div>
-          <div>
-            <span id="wind-speed"></span>
-          </div>
-          <div>
-            <span id="uv-index"></span>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div>
-                <h4>5-day forecast:</h4>
-              </div>
+          <div class="col-12">
+            <div>
+              <h4>5-day forecast:</h4>
             </div>
-            <div class="row col-12">
-              <div id="forecast-1" class="col-sm-2"></div>
-              <div id="forecast-2" class="col-sm-2"></div>
-              <div id="forecast-3" class="col-sm-2"></div>
-              <div id="forecast-4" class="col-sm-2"></div>
-              <div id="forecast-5" class="col-sm-2"></div>
-
-
-
-
-              
-            </div>
+          </div>
         </div>
-        
-          
+        <div class="row">
+          <div id="forecast-1" class="bg-primary ml-3 mb-3"></div>
+          <div id="forecast-2" class="ml-3 mb-3"></div>
+          <div id="forecast-3" class="ml-3 mb-3"></div>
+          <div id="forecast-4" class="ml-3 mb-3"></div>
+          <div id="forecast-5" class="ml-3 mb-3"></div>
         </div>
-        
-
-      </div>
-          
-        
-        
+      </div>   
     </div>
   </main>
 

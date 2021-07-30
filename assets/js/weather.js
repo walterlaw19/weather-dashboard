@@ -1,7 +1,3 @@
-// var ready = function () {
-
-// }
-
 
 var key = secret_api_key;
 var cityName = document.querySelector("#city-name"); // querySelector -> cna be used for id or classes or element tags
@@ -35,8 +31,12 @@ var getUserWeather = function() {
         updateTime()
 
 
+
+
         var CityNameResultSpan = document.querySelector("#city-name-result");
-        CityNameResultSpan.textContent = data.name + " (" + (currentTime) + ")" ;
+        var CityImg = data.weather[0].icon;
+
+        CityNameResultSpan.textContent = data.name + " (" + (currentTime) + ")" + CityImg ;
 
        
 
@@ -83,7 +83,7 @@ var getUserWeather = function() {
             // forecast day 1
             var forecastOneDivEl = document.querySelector("#forecast-1");
             var forecastOneDateEl = document.createElement("p");
-// var image create
+    // var image create
             var forecastOneTempEl = document.createElement("p");
             var forecastOneWindEl = document.createElement("p");
             var forecastOneHumidEl = document.createElement("p");
@@ -199,6 +199,30 @@ var getUserWeather = function() {
             forecastFiveDivEl.appendChild(forecastFiveHumidEl);
 
 
+            // if (cityName) {
+            //     getUserWeather(cityName);
+            
+            //     // clear old content
+            //     forecastOneTempEl.textContent = "";
+            //     nameInputEl.value = "";
+            //   } else {
+            //     alert("Please enter a GitHub username");
+            //   }
+
+            
+
+
+
+
+            localStorage.setItem(JSON.stringify(CityName), data.name);
+            console.log(JSON.stringify(CityName), data.name)
+
+
+            var cityHistory = storage.getItem(CityNameResultSpan, data.name);
+            document.getElementById("city-search-history").value = cityHistory;
+
+
+
 
 
 
@@ -226,31 +250,34 @@ var getUserWeather = function() {
 
 
 
+
+
+
 // submit function
 // var formSubmitHandler = function() {
 
 // }
 
 // display function
-var displayWeather = function() {
+// var displayWeather = function() {
 
 
 
 
 
 
-    // TO LINK THE RESULTS TO THE NEXT PAGE
-    // for (var i = 0; i < repos.length; i++) {
-    //     // format repo name
-    //     var repoName = repos[i].owner.login + "/" + repos[i].name;
+//     // TO LINK THE RESULTS TO THE NEXT PAGE
+//     // for (var i = 0; i < repos.length; i++) {
+//     //     // format repo name
+//     //     var repoName = repos[i].owner.login + "/" + repos[i].name;
       
-    //     // create a container for each repo
-    //     var repoEl = document.createElement("a");
-    //     repoEl.classList = "list-item flex-row justify-space-between align-center";
-    //     repoEl.setAttribute("href", "./single-repo.html");
-    //     // create a span element to hold repository name
+//     //     // create a container for each repo
+//     //     var repoEl = document.createElement("a");
+//     //     repoEl.classList = "list-item flex-row justify-space-between align-center";
+//     //     repoEl.setAttribute("href", "./single-repo.html");
+//     //     // create a span element to hold repository name
 
-};
+// };
 
 // getUserWeather();
 

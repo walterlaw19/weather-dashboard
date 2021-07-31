@@ -1,21 +1,20 @@
 
 var key = secret_api_key;
 var cityName = document.querySelector("#city-name"); // querySelector -> cna be used for id or classes or element tags
-
-console.log(cityName.value)
+console.log(cityName.value);
+var cityIdCounter = 0;
 
 // get user weather function
 var getUserWeather = function() {
+
+    
+    
+
+
     console.log("https://api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&units=imperial&appid=" + key)
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&units=imperial&appid=" + key)
     .then(function (response) {
         return response.json();
-
-        // if(response.ok) {
-        //     response.json().then(function(data) {
-        //         displayWeather(data.lat);
-        //     })
-        // }
     })
     .then(function(data) {
 
@@ -34,22 +33,32 @@ var getUserWeather = function() {
 
 
         var CityNameResultSpan = document.querySelector("#city-name-result");
+
         var CityImg = data.weather[0].icon;
+        var cityimg2 = document.createElement("img");
+        console.log(CityImg);
 
-        CityNameResultSpan.textContent = data.name + " (" + (currentTime) + ")" + CityImg ;
+        var iconLink1 = "https://openweathermap.org/img/w/" + CityImg + ".png";
+        cityimg2.setAttribute('src', iconLink1);
+        CityNameResultSpan.appendChild(cityimg2);
 
-       
 
-    
-        // var weatherContainerEl = document.querySelector("#weather-container");
-        // var weatherUserResult = document.createElement("search-result");
-        // weatherUserResult.setAttribute("href", data.current);
-        // weatherContainerEl.appendChild(weatherUserResult);
-        // console.log(data.current.weather);
+
+
+        // var jpgImg0 = document.createElement('img');
+        // var iconUrl0 = "https://openweathermap.org/img/w/" + data2.list[0].weather[0].icon + ".png";
+        // jpgImg0.setAttribute('src', iconUrl0);
+        //             iconTime0El.innerHTML = '';
+        //             iconTime0El.appendChild(jpgImg0);
+
+        
+
+
+        CityNameResultSpan.textContent = data.name + " (" + (currentTime) + ")" + iconLink1;
+
 
         console.log(data)
 
-        // just get the lon and lat from the first fetch call
         var lon = data.coord.lon;
         var lat = data.coord.lat;
 
@@ -58,7 +67,12 @@ var getUserWeather = function() {
             return response.json();
         })
         .then(function(data2) {
+            
+
+            
             console.log(data2)
+
+            
 
 
             // queryselect the element
@@ -73,20 +87,38 @@ var getUserWeather = function() {
             var windSpeedSpan = document.querySelector("#wind-speed");
             windSpeedSpan.textContent = "Wind Speed: " + data2.current.wind_speed + " MPH";
 
+            // var UVI = data2.current.uvi;
+            
+            // if (UVI < 3 ) {
+            //     uvIndexSpan.style.backgroundColor= "rgb(97, 211, 240)";
+            // } else if (UVI >=3 & UVI <=6) {
+            //     uvIndexSpan.style.backgroundColor= "rgb(218, 231, 31)";
+            // } else {
+            //     uvIndexSpan.style.backgroundColor= "rgb(245, 8, 8)";
+            // }
+
+
+
             var uvIndexSpan = document.querySelector("#uv-index");
+
+
+
             uvIndexSpan.textContent = "UV Index: " + data2.current.uvi;
 
 
 
-            // forecast of 5 days
+            // forecast of 5 days --------------------------------------------
+            
 
             // forecast day 1
             var forecastOneDivEl = document.querySelector("#forecast-1");
+            forecastOneDivEl.textContent = "";
             var forecastOneDateEl = document.createElement("p");
     // var image create
             var forecastOneTempEl = document.createElement("p");
             var forecastOneWindEl = document.createElement("p");
             var forecastOneHumidEl = document.createElement("p");
+
 
             forecastOneDateEl.textContent = dateOne;
 // image obtain
@@ -100,11 +132,18 @@ var getUserWeather = function() {
             forecastOneDivEl.appendChild(forecastOneTempEl);
             forecastOneDivEl.appendChild(forecastOneWindEl);
             forecastOneDivEl.appendChild(forecastOneHumidEl);
-            
 
+
+             
+
+           
+
+            
+ 
 
             // forecast day 2
             var forecastTwoDivEl = document.querySelector("#forecast-2");
+            forecastTwoDivEl.textContent = "";
             var forecastTwoDateEl =  document.createElement("p");
             // create var image
             var forecastTwoTempEl = document.createElement("p");
@@ -127,6 +166,7 @@ var getUserWeather = function() {
 
             // forecast day 3
             var forecastThreeDivEl = document.querySelector("#forecast-3");
+            forecastThreeDivEl.textContent = "";
             var forecastThreeDateEl =  document.createElement("p");
             // create var image
             var forecastThreeTempEl = document.createElement("p");
@@ -153,6 +193,7 @@ var getUserWeather = function() {
 
             // forecast day 4
             var forecastFourDivEl = document.querySelector("#forecast-4");
+            forecastFourDivEl.textContent = "";
             var forecastFourDateEl =  document.createElement("p");
             // create var image
             var forecastFourTempEl = document.createElement("p");
@@ -174,11 +215,10 @@ var getUserWeather = function() {
 
 
 
-
-
-
             // forecast day 5
             var forecastFiveDivEl = document.querySelector("#forecast-5");
+            forecastFiveDivEl.textContent = "";
+            forecastFiveDivEl.style.display = "block";
             var forecastFiveDateEl =  document.createElement("p");
             // create var image
             var forecastFiveTempEl = document.createElement("p");
@@ -198,88 +238,43 @@ var getUserWeather = function() {
             forecastFiveDivEl.appendChild(forecastFiveWindEl);
             forecastFiveDivEl.appendChild(forecastFiveHumidEl);
 
-
-            // if (cityName) {
-            //     getUserWeather(cityName);
-            
-            //     // clear old content
-            //     forecastOneTempEl.textContent = "";
-            //     nameInputEl.value = "";
-            //   } else {
-            //     alert("Please enter a GitHub username");
-            //   }
+            cityName.value = "";
 
             
 
 
 
+            // storage history
 
-            localStorage.setItem(JSON.stringify(CityName), data.name);
-            console.log(JSON.stringify(CityName), data.name)
-
-
-            var cityHistory = storage.getItem(CityNameResultSpan, data.name);
-            document.getElementById("city-search-history").value = cityHistory;
+        
 
 
+            localStorage.setItem(JSON.stringify("CityName"), data.name);
+            console.log(JSON.stringify("CityName"), data.name);
 
-
-
-
-            
+            var cityHistoryEl = document.querySelector("#city-search-history");
 
 
 
-            
-
-
-
+            var cityHistorylistEl = document.createElement("li");
+            cityHistorylistEl.className = "cities";
+            cityHistorylistEl.setAttribute("city-id", cityIdCounter);
+            cityHistorylistEl.textContent = cityName.value;
+            cityIdCounter++
+            cityHistoryEl.appendChild(cityHistorylistEl);
 
             
-
+   
+            
             
         })
-
-
+        
 
     });
 
-    
 };
 
 
-
-
-
-
-
-// submit function
-// var formSubmitHandler = function() {
-
-// }
-
-// display function
-// var displayWeather = function() {
-
-
-
-
-
-
-//     // TO LINK THE RESULTS TO THE NEXT PAGE
-//     // for (var i = 0; i < repos.length; i++) {
-//     //     // format repo name
-//     //     var repoName = repos[i].owner.login + "/" + repos[i].name;
-      
-//     //     // create a container for each repo
-//     //     var repoEl = document.createElement("a");
-//     //     repoEl.classList = "list-item flex-row justify-space-between align-center";
-//     //     repoEl.setAttribute("href", "./single-repo.html");
-//     //     // create a span element to hold repository name
-
-// };
-
-// getUserWeather();
 
 var weatherButton = document.getElementById("btn-weather");
 

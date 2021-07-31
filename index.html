@@ -23,7 +23,7 @@
   <main class="container">
     <div class="row">
       <div class="col-12 col-sm-2">
-        <h3 class="card-header text-uppercase">Search By City</h3>
+        <h3 class="card-header">Search By City</h3>
         <!-- form -->
         <form id="user-form" class="card-body">
           <label class="form-label"></label>
@@ -37,8 +37,9 @@
             <h5 class="card-header">
               history searches
             </h5>  
+            <div id="city-search-history"></div>
           </div>
-          <div id="city-search-history"></div>
+          
         </div>
       </div>
 
@@ -47,7 +48,7 @@
         <div class="col-12 col-sm-12">
           <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
         <div id="weather-container" class="">
-          <span id="city-name-result" class="text-uppercase"></span>
+          <span id="city-name-result" ></span>
           <!-- <img src="placeholder" alt=""> -->
         </div>
         <div>
@@ -70,7 +71,7 @@
           </div>
         </div>
         <div class="row">
-          <div id="forecast-1" class="bg-primary col"></div>
+          <div id="forecast-1" class="col"></div>
           <div id="forecast-2" class="col"></div>
           <div id="forecast-3" class="col"></div>
           <div id="forecast-4" class="col"></div>

@@ -4,7 +4,7 @@ var cityName = document.querySelector("#city-name"); // querySelector -> cna be 
 console.log(cityName.value);
 
 var cityHistoryEl = document.querySelector("city-search-history");
-var counterCity = 0;
+var cityCounter = 0;
 
 // get user weather function
 var getUserWeather = function() {
@@ -211,15 +211,35 @@ var getUserWeather = function() {
             cityName.value = "";
 
 
-
-
-
             // make list of current search cities
             var citylistHistoryEl = document.querySelector("#city-search-history");
 
             var cityListEl = document.createElement("button");
             cityListEl.textContent = data.name;
+            cityListEl.className = "city-history-btn";
+            cityListEl.setAttribute("id", cityCounter);
+            cityCounter++;
             citylistHistoryEl.appendChild(cityListEl);
+        });
+    });
+};
+
+
+var weatherButton = document.getElementById("btn-weather");
+weatherButton.addEventListener("click", getUserWeather);
+
+
+// Storing cityname in local Storage
+
+            // localStorage.setItem(JSON.stringify("CityName"), data.name);
+            // console.log(JSON.stringify("CityName"), data.name);
+
+            // var cityLiEl = document.createElement("li");
+            // cityLiEl.className = "cities";
+            // cityLiEl.setAttribute("city-id", counterCity);
+            // cityLiEl.innerHTML = data.name;
+            // counterCity++;
+            // cityHistoryEl.appendChild(cityLiEl);
             // getUserWeather();
 
 
@@ -239,38 +259,9 @@ var getUserWeather = function() {
             // }
 
 
+// var cityHistoryCounter = document.getElementById("0");
+// cityHistoryCounter.addEventListener("click", weatherHistory);
 
-
-            
-            
-
-
-
-
-
-
-
-
-
-            // Storing cityname in local Storage
-
-            // localStorage.setItem(JSON.stringify("CityName"), data.name);
-            // console.log(JSON.stringify("CityName"), data.name);
-
-            // var cityLiEl = document.createElement("li");
-            // cityLiEl.className = "cities";
-            // cityLiEl.setAttribute("city-id", counterCity);
-            // cityLiEl.innerHTML = data.name;
-            // counterCity++;
-            // cityHistoryEl.appendChild(cityLiEl);
- 
-        });
-        
-    });
-};
-
-
-
-
-var weatherButton = document.getElementById("btn-weather");
-weatherButton.addEventListener("click", getUserWeather);
+// function weatherHistory() {
+    
+// }

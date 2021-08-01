@@ -48,7 +48,9 @@ var getUserWeather = function() {
         var lat = data.coord.lat;
 
 
+
         // fetching 2nd time to obtain 5 day forecast using lon and lat
+        console.log("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key);
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key)
         .then(function (response) {
             return response.json();
@@ -76,7 +78,7 @@ var getUserWeather = function() {
             if (uvControl < 3) {
                 uvIndexSpan.style.backgroundColor = "green", uvIndexSpan.style.color = "white";
             } else if (uvControl >=3 & uvControl <=6) {
-                uvIndexSpan.style.backgroundColor = "yellow", uvIndexSpan.style.color = "white";
+                uvIndexSpan.style.backgroundColor = "yellow", uvIndexSpan.style.color = "blue";
             } else {
                 uvIndexSpan.style.backgroundColor = "red", uvIndexSpan.style.color = "white";
             }
@@ -87,6 +89,7 @@ var getUserWeather = function() {
 
             // forecast day 1
             var forecastOneDivEl = document.querySelector("#forecast-1");
+            // clear results for next search
             forecastOneDivEl.textContent = "";
             var forecastOneDateEl = document.createElement("p");
             var forecastOneIcon = document.createElement("img")
@@ -102,7 +105,6 @@ var getUserWeather = function() {
             forecastOneWindEl.textContent = "Wind Speed: " + data2.daily[0].wind_speed + " MPH";
             forecastOneHumidEl.textContent = "Humidity: " + data2.daily[0].humidity + "%";
 
-            console.log(forecastOneTempEl);
             forecastOneDivEl.appendChild(forecastOneDateEl);
             forecastOneDivEl.appendChild(forecastOneIcon);
             forecastOneDivEl.appendChild(forecastOneTempEl);
@@ -127,7 +129,6 @@ var getUserWeather = function() {
             forecastTwoWindEl.textContent = "Wind Speed: " + data2.daily[1].wind_speed + " MPH";
             forecastTwoHumidEl.textContent = "Humidity: " + data2.daily[1].humidity + "%";
 
-            console.log(forecastTwoTempEl);
             forecastTwoDivEl.appendChild(forecastTwoDateEl);
             forecastTwoDivEl.appendChild(forecastTwoIcon);
             forecastTwoDivEl.appendChild(forecastTwoTempEl);
@@ -152,13 +153,12 @@ var getUserWeather = function() {
             forecastThreeWindEl.textContent = "Wind Speed: " + data2.daily[2].wind_speed + " MPH";
             forecastThreeHumidEl.textContent = "Humidity: " + data2.daily[2].humidity + "%";
 
-            console.log(forecastThreeTempEl);
+            
             forecastThreeDivEl.appendChild(forecastThreeDateEl);
             forecastThreeDivEl.appendChild(forecastThreeIcon);
             forecastThreeDivEl.appendChild(forecastThreeTempEl);
             forecastThreeDivEl.appendChild(forecastThreeWindEl);
             forecastThreeDivEl.appendChild(forecastThreeHumidEl);
-
 
             // forecast day 4
             var forecastFourDivEl = document.querySelector("#forecast-4");
@@ -177,13 +177,12 @@ var getUserWeather = function() {
             forecastFourWindEl.textContent = "Wind Speed: " + data2.daily[3].wind_speed + " MPH";
             forecastFourHumidEl.textContent = "Humidity: " + data2.daily[3].humidity + "%";
 
-            console.log(forecastFourTempEl);
+            
             forecastFourDivEl.appendChild(forecastFourDateEl);
             forecastFourDivEl.appendChild(forecastFourIcon);
             forecastFourDivEl.appendChild(forecastFourTempEl);
             forecastFourDivEl.appendChild(forecastFourWindEl);
             forecastFourDivEl.appendChild(forecastFourHumidEl);
-
 
             // forecast day 5
             var forecastFiveDivEl = document.querySelector("#forecast-5");
@@ -201,20 +200,62 @@ var getUserWeather = function() {
             forecastFiveTempEl.textContent = "temp: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
             forecastFiveWindEl.textContent = "Wind Speed: " + data2.daily[4].wind_speed + " MPH";
             forecastFiveHumidEl.textContent = "Humidity: " + data2.daily[4].humidity + "%";
-
-            console.log(forecastFiveTempEl);
+           
             forecastFiveDivEl.appendChild(forecastFiveDateEl);
             forecastFiveDivEl.appendChild(forecastFiveIcon);
             forecastFiveDivEl.appendChild(forecastFiveTempEl);
             forecastFiveDivEl.appendChild(forecastFiveWindEl);
             forecastFiveDivEl.appendChild(forecastFiveHumidEl);
 
+            // clear city search name after click
             cityName.value = "";
+
+
+
+
+
+            // make list of current search cities
+            var citylistHistoryEl = document.querySelector("#city-search-history");
+
+            var cityListEl = document.createElement("button");
+            cityListEl.textContent = data.name;
+            citylistHistoryEl.appendChild(cityListEl);
+            // getUserWeather();
+
+
+            
+
+
+
+
+
+
+
+
+
+            // for (let index = 0; index < array.length; index++) {
+            //     const element = array[index];
+                
+            // }
+
+
+
+
+            
+            
+
+
+
+
+
+
+
+
 
             // Storing cityname in local Storage
 
-            localStorage.setItem(JSON.stringify("CityName"), data.name);
-            console.log(JSON.stringify("CityName"), data.name);
+            // localStorage.setItem(JSON.stringify("CityName"), data.name);
+            // console.log(JSON.stringify("CityName"), data.name);
 
             // var cityLiEl = document.createElement("li");
             // cityLiEl.className = "cities";
@@ -223,9 +264,13 @@ var getUserWeather = function() {
             // counterCity++;
             // cityHistoryEl.appendChild(cityLiEl);
  
-        })
+        });
+        
     });
 };
+
+
+
 
 var weatherButton = document.getElementById("btn-weather");
 weatherButton.addEventListener("click", getUserWeather);

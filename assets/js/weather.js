@@ -91,7 +91,7 @@ var getUserWeather = function() {
             var forecastOneDivEl = document.querySelector("#forecast-1");
             // clear results for next search
             forecastOneDivEl.textContent = "";
-            var forecastOneDateEl = document.createElement("p");
+            var forecastOneDateEl = document.createElement("h5");
             var forecastOneIcon = document.createElement("img")
             var forecastOneTempEl = document.createElement("p");
             var forecastOneWindEl = document.createElement("p");
@@ -101,8 +101,8 @@ var getUserWeather = function() {
             var forecastOneImg = data2.daily[0].weather[0].icon;
             var forecastOneLink = "https://openweathermap.org/img/w/" + forecastOneImg + ".png";
             forecastOneIcon.setAttribute("src", forecastOneLink);
-            forecastOneTempEl.textContent = "temp: " + Math.trunc(data2.daily[0].temp.max) + " ℉";
-            forecastOneWindEl.textContent = "Wind Speed: " + data2.daily[0].wind_speed + " MPH";
+            forecastOneTempEl.textContent = "Temp: " + Math.trunc(data2.daily[0].temp.max) + " ℉";
+            forecastOneWindEl.textContent = "Wind: " + data2.daily[0].wind_speed + " MPH";
             forecastOneHumidEl.textContent = "Humidity: " + data2.daily[0].humidity + "%";
 
             forecastOneDivEl.appendChild(forecastOneDateEl);
@@ -115,7 +115,7 @@ var getUserWeather = function() {
             // forecast day 2
             var forecastTwoDivEl = document.querySelector("#forecast-2");
             forecastTwoDivEl.textContent = "";
-            var forecastTwoDateEl =  document.createElement("p");
+            var forecastTwoDateEl =  document.createElement("h5");
             var forecastTwoIcon = document.createElement("img")
             var forecastTwoTempEl = document.createElement("p");
             var forecastTwoWindEl = document.createElement("p");
@@ -125,8 +125,8 @@ var getUserWeather = function() {
             var forecastTwoImg = data2.daily[1].weather[0].icon;
             var forecastTwoLink = "https://openweathermap.org/img/w/" + forecastTwoImg + ".png";
             forecastTwoIcon.setAttribute("src", forecastTwoLink);
-            forecastTwoTempEl.textContent = "temp: " + Math.trunc(data2.daily[1].temp.max) + " ℉";
-            forecastTwoWindEl.textContent = "Wind Speed: " + data2.daily[1].wind_speed + " MPH";
+            forecastTwoTempEl.textContent = "Temp: " + Math.trunc(data2.daily[1].temp.max) + " ℉";
+            forecastTwoWindEl.textContent = "Wind: " + data2.daily[1].wind_speed + " MPH";
             forecastTwoHumidEl.textContent = "Humidity: " + data2.daily[1].humidity + "%";
 
             forecastTwoDivEl.appendChild(forecastTwoDateEl);
@@ -139,7 +139,7 @@ var getUserWeather = function() {
             // forecast day 3
             var forecastThreeDivEl = document.querySelector("#forecast-3");
             forecastThreeDivEl.textContent = "";
-            var forecastThreeDateEl =  document.createElement("p");
+            var forecastThreeDateEl =  document.createElement("h5");
             var forecastThreeIcon = document.createElement("img");
             var forecastThreeTempEl = document.createElement("p");
             var forecastThreeWindEl = document.createElement("p");
@@ -149,8 +149,8 @@ var getUserWeather = function() {
             var forecastThreeImg = data2.daily[2].weather[0].icon;
             var forecastThreeLink = "https://openweathermap.org/img/w/" + forecastThreeImg + ".png";
             forecastThreeIcon.setAttribute("src", forecastThreeLink);
-            forecastThreeTempEl.textContent = "temp: " + Math.trunc(data2.daily[2].temp.max) + " ℉";
-            forecastThreeWindEl.textContent = "Wind Speed: " + data2.daily[2].wind_speed + " MPH";
+            forecastThreeTempEl.textContent = "Temp: " + Math.trunc(data2.daily[2].temp.max) + " ℉";
+            forecastThreeWindEl.textContent = "Wind: " + data2.daily[2].wind_speed + " MPH";
             forecastThreeHumidEl.textContent = "Humidity: " + data2.daily[2].humidity + "%";
 
             
@@ -163,7 +163,7 @@ var getUserWeather = function() {
             // forecast day 4
             var forecastFourDivEl = document.querySelector("#forecast-4");
             forecastFourDivEl.textContent = "";
-            var forecastFourDateEl =  document.createElement("p");
+            var forecastFourDateEl =  document.createElement("h5");
             var forecastFourIcon = document.createElement("img");
             var forecastFourTempEl = document.createElement("p");
             var forecastFourWindEl = document.createElement("p");
@@ -173,8 +173,8 @@ var getUserWeather = function() {
             var forecastFourImg = data2.daily[3].weather[0].icon;
             var forecastFourLink = "https://openweathermap.org/img/w/" + forecastFourImg + ".png";
             forecastFourIcon.setAttribute("src", forecastFourLink);
-            forecastFourTempEl.textContent = "temp: " + Math.trunc(data2.daily[3].temp.max) + " ℉";
-            forecastFourWindEl.textContent = "Wind Speed: " + data2.daily[3].wind_speed + " MPH";
+            forecastFourTempEl.textContent = "Temp: " + Math.trunc(data2.daily[3].temp.max) + " ℉";
+            forecastFourWindEl.textContent = "Wind: " + data2.daily[3].wind_speed + " MPH";
             forecastFourHumidEl.textContent = "Humidity: " + data2.daily[3].humidity + "%";
 
             
@@ -187,7 +187,7 @@ var getUserWeather = function() {
             // forecast day 5
             var forecastFiveDivEl = document.querySelector("#forecast-5");
             forecastFiveDivEl.textContent = "";
-            var forecastFiveDateEl =  document.createElement("p");
+            var forecastFiveDateEl =  document.createElement("h5");
             var forecastFiveIcon = document.createElement("img");
             var forecastFiveTempEl = document.createElement("p");
             var forecastFiveWindEl = document.createElement("p");
@@ -197,8 +197,8 @@ var getUserWeather = function() {
             var forecastFiveImg = data2.daily[4].weather[0].icon;
             var forecastFiveLink = "https://openweathermap.org/img/w/" + forecastFiveImg + ".png";
             forecastFiveIcon.setAttribute("src", forecastFiveLink);
-            forecastFiveTempEl.textContent = "temp: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
-            forecastFiveWindEl.textContent = "Wind Speed: " + data2.daily[4].wind_speed + " MPH";
+            forecastFiveTempEl.textContent = "Temp: " + Math.trunc(data2.daily[4].temp.max) + " ℉";
+            forecastFiveWindEl.textContent = "Wind: " + data2.daily[4].wind_speed + " MPH";
             forecastFiveHumidEl.textContent = "Humidity: " + data2.daily[4].humidity + "%";
            
             forecastFiveDivEl.appendChild(forecastFiveDateEl);
@@ -208,13 +208,13 @@ var getUserWeather = function() {
             forecastFiveDivEl.appendChild(forecastFiveHumidEl);
 
             // clear city search name after click
-            cityName.value = "";
+            // cityName.value = "";
 
 
             // make list of current search cities
             var citylistHistoryEl = document.querySelector("#city-search-history");
 
-            var cityListEl = document.createElement("button");
+            var cityListEl = document.createElement("li");
             cityListEl.textContent = data.name;
             cityListEl.className = "city-history-btn";
             cityListEl.setAttribute("id", cityCounter);

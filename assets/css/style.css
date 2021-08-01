@@ -3,3 +3,64 @@ header {
     background-color: blue;
 }
 
+
+
+#hist-search {
+    padding: 0px 50px 0px 0px;
+}
+#user-form {
+    padding: 0px 50px 0px 0px;
+}
+
+h5 {
+    text-align: center;
+}
+
+#btn-weather {
+    background-color:cadetblue;
+    
+    padding: 0px 62px 0px 0px;
+}
+
+#current-temp {
+    padding: 5px 0px;
+}
+
+#current-humid {
+    padding: 5px 0px;
+}
+
+#current-wind {
+    padding: 5px 0px;
+}
+
+#current-uv {
+    padding: 5px 0px;
+}
+
+#forecast-1 {
+    background-color: darkblue;
+    color: white;
+}
+
+#forecast-2 {
+    background-color: darkblue;
+    color: white;
+}
+
+#forecast-3 {
+    background-color: darkblue;
+    color: white;
+}
+
+#forecast-4 {
+    background-color: darkblue;
+    color: white;
+}
+
+#forecast-5 {
+    background-color: darkblue;
+    color: white;
+}
+
+

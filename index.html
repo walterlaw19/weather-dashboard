@@ -20,9 +20,9 @@
         
   </header>
   <!-- Container -->
-  <main class="container">
-    <div class="row">
-      <div class="col-12 col-sm-3">
+  <main class="container-fluid">
+    <div class="row justify-content-between">
+      <div class="col-12 col-sm-2">
         <h3 class="card-header">Search By City</h3>
         <!-- form -->
         <form id="user-form" class="card-body">
@@ -32,10 +32,10 @@
         </form>
 
         <!-- show history search -->
-        <div class="row">
-          <div  class="col-12 col-sm-3">
-            <h5 class="card-header">
-              history searches
+        <div id="hist-search" class="row">
+          <div class="col-12 col-sm-12">
+            <h5">
+              Search History
             </h5>  
             <div id="city-search-history"></div>
           </div>
@@ -44,39 +44,39 @@
       </div>
 
       <!-- Show Search Results -->
-      <div class="col-12 col-sm-9">
+      <div class="col-12 col-sm-10">
         <div class="col-12 col-sm-12">
-          <h2 class="subtitle">Showing weather for: <span id="weather-search-term"></span></h2>
+          <h2 class="subtitle">Current weather for: <span id="weather-search-term"></span></h2>
         <div id="weather-container" class="">
-          <span id="city-name-result" ></span>
+          <h4 id="city-name-result" ></h4>
           <span id="city-icon-result"></span>
           <!-- <img src="placeholder" alt=""> -->
         </div>
-        <div>
+        <div id="current-temp">
           <span id="temperature"></span>
         </div>
-        <div>
+        <div id="current-humid">
           <span id="humidity"></span>
         </div>
-        <div>
+        <div id="current-wind">
           <span id="wind-speed"></span>
         </div>
-        <div>
+        <div id="current-uv">
           <span id="uv-index"></span>
         </div>
         <div class="row">
           <div class="col-12">
-            <div>
+            <div id="five-forecast">
               <h4>5-day forecast:</h4>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div id="forecast-1" class="col"></div>
-          <div id="forecast-2" class="col"></div>
-          <div id="forecast-3" class="col"></div>
-          <div id="forecast-4" class="col"></div>
-          <div id="forecast-5" class="col"></div>
+        <div class="row justify-content-between">
+          <div id="forecast-1" class="col-2"></div>
+          <div id="forecast-2" class="col-2"></div>
+          <div id="forecast-3" class="col-2"></div>
+          <div id="forecast-4" class="col-2"></div>
+          <div id="forecast-5" class="col-2"></div>
         </div>
       </div>   
     </div>

@@ -1,5 +1,5 @@
 
-var key = secret_api_key;
+var key = "aa13099c2c810761d8793e0f517d1466";
 var cityName = document.querySelector("#city-name"); // querySelector -> cna be used for id or classes or element tags
 console.log(cityName.value);
 

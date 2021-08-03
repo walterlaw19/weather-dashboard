@@ -3,6 +3,10 @@ header {
     background-color: blue;
 }
 
+#city-search-history {
+    display: flex;
+    flex-direction: column;
+}
 
 
 #hist-search {
